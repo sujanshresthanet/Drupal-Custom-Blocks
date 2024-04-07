@@ -1,0 +1,8 @@
+name: 'Custom Latest Nodes'
+type: module
+description: 'Retrieves the latest nodes related to the current node category.'
+package: 'Custom Blocks'
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:node
+  - custom_blocks
