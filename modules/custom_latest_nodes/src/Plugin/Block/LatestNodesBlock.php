@@ -4,8 +4,8 @@ namespace Drupal\custom_latest_nodes\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\custom_latest_nodes\LatestNodesService;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides a 'Latest Nodes' block.
@@ -24,6 +24,9 @@ class LatestNodesBlock extends BlockBase implements ContainerFactoryPluginInterf
     $this->latestNodesService = $latestNodesService;
   }
 
+  /**
+   *
+   */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static(
       $configuration,
@@ -52,7 +55,8 @@ class LatestNodesBlock extends BlockBase implements ContainerFactoryPluginInterf
       foreach ($latestNodes as $node) {
         $build[] = [
           '#type' => 'markup',
-          '#markup' => $node->getTitle(), // Display node title. Modify as needed.
+        // Display node title. Modify as needed.
+          '#markup' => $node->getTitle(),
         ];
       }
     }
