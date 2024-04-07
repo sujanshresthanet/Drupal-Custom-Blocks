@@ -19,13 +19,25 @@ class LatestNodesBlock extends BlockBase implements ContainerFactoryPluginInterf
 
   protected $latestNodesService;
 
+  /**
+   * Constructs a LatestNodesBlock object.
+   *
+   * @param array $configuration
+   *   A configuration array containing information about the plugin instance.
+   * @param string $plugin_id
+   *   The plugin_id for the plugin instance.
+   * @param mixed $plugin_definition
+   *   The plugin implementation definition.
+   * @param \Drupal\custom_latest_nodes\LatestNodesService $latestNodesService
+   *   The latest nodes service.
+   */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, LatestNodesService $latestNodesService) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->latestNodesService = $latestNodesService;
   }
 
   /**
-   *
+   * {@inheritdoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static(
@@ -37,7 +49,10 @@ class LatestNodesBlock extends BlockBase implements ContainerFactoryPluginInterf
   }
 
   /**
-   * {@inheritdoc}
+   * Builds and returns the renderable array for the block.
+   *
+   * @return array
+   *   A renderable array representing the content of the block.
    */
   public function build() {
     $build = [];
@@ -55,7 +70,7 @@ class LatestNodesBlock extends BlockBase implements ContainerFactoryPluginInterf
       foreach ($latestNodes as $node) {
         $build[] = [
           '#type' => 'markup',
-        // Display node title. Modify as needed.
+          // Display node title. Modify as needed.
           '#markup' => $node->getTitle(),
         ];
       }
