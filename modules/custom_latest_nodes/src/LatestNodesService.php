@@ -4,6 +4,9 @@ namespace Drupal\custom_latest_nodes;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 
+/**
+ *
+ */
 class LatestNodesService {
 
   protected $entityTypeManager;
@@ -12,6 +15,9 @@ class LatestNodesService {
     $this->entityTypeManager = $entityTypeManager;
   }
 
+  /**
+   *
+   */
   public function getLatestNodes($categoryId, $limit = 5) {
     // Fetch the node storage.
     $nodeStorage = $this->entityTypeManager->getStorage('node');
@@ -19,10 +25,14 @@ class LatestNodesService {
     // Query for nodes of the specified category.
     $query = $nodeStorage->getQuery()
       ->accessCheck(TRUE)
-      ->condition('status', 1) // Published nodes only.
-      ->condition('type', 'page') // Replace with your content type.
-      ->sort('created', 'DESC') // Sort by creation date, latest first.
-      ->range(0, $limit); // Limit the number of nodes.
+    // Published nodes only.
+      ->condition('status', 1)
+    // Replace with your content type.
+      ->condition('type', 'page')
+    // Sort by creation date, latest first.
+      ->sort('created', 'DESC')
+    // Limit the number of nodes.
+      ->range(0, $limit);
 
     $sample_node = $nodeStorage->create(['type' => 'page']);
 
@@ -30,7 +40,8 @@ class LatestNodesService {
     if ($sample_node->hasField('field_category')) {
       // Replace $categoryId with the category ID you want to filter by.
       $query->condition('field_category', $categoryId);
-    } else {
+    }
+    else {
       // Field doesn't exist, return null or handle the case as needed.
       return [];
     }
@@ -40,4 +51,5 @@ class LatestNodesService {
     // Load the nodes.
     return $nodeStorage->loadMultiple($nids);
   }
+
 }
