@@ -1,0 +1,7 @@
+name: 'Custom Taxonomy Block'
+type: module
+description: 'Provides a block to display terms from a selected vocabulary.'
+core_version_requirement: ^9 || ^10
+package: Custom
+dependencies:
+  - drupal:block

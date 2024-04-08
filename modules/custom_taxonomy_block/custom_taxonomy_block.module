@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * Implements hook_help().
+ */
+function custom_taxonomy_block_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.custom_taxonomy_block':
+      return '<p>' . t('Displays a block listing terms from a selected vocabulary.') . '</p>';
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function custom_taxonomy_block_theme() {
+  return [
+    'custom_taxonomy_block_template' => [
+      'variables' => ['terms' => []],
+    ],
+  ];
+}
