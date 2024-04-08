@@ -60,8 +60,13 @@ class LatestNodesBlock extends BlockBase implements ContainerFactoryPluginInterf
     // Get the current node.
     $currentNode = \Drupal::routeMatch()->getParameter('node');
     if ($currentNode) {
-      // Get the category from the current node.
-      $categoryId = $currentNode->get('field_category')->target_id;
+      $categoryId = '';
+
+      // Check if the current node has 'field_category' field
+      if($currentNode->hasField('field_category')) {
+        // Get the category from the current node.
+        $categoryId = $currentNode->get('field_category')->target_id;
+      }
 
       // Get the latest nodes related to the category.
       $latestNodes = $this->latestNodesService->getLatestNodes($categoryId, 5);

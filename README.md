@@ -1,4 +1,4 @@
-# Drupal 9/10 Custom Blocks Module
+# Drupal 9/10 Custom Blocks
 
 This module provides various examples of custom blocks in Drupal 9/10 and demonstrations related to creating custom blocks. Custom blocks are a powerful feature in Drupal that allows developers to create reusable pieces of content or functionality that can be placed within regions of a site's layout. With a variety of examples covering different scenarios and implementations, this module aims to empower developers to create powerful and flexible block-based solutions for their Drupal projects.
 

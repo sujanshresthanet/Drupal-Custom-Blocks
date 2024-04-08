@@ -55,14 +55,16 @@ class LatestNodesService {
 
     $current_node = $nodeStorage->create(['type' => 'page']);
 
-    // Check if the field 'field_category' exists.
-    if ($current_node->hasField('field_category')) {
-      // Replace $categoryId with the category ID you want to filter by.
-      $query->condition('field_category', $categoryId);
-    }
-    else {
-      // Field doesn't exist, return an empty array.
-      return [];
+    if($categoryId != '') {
+      // Check if the field 'field_category' exists.
+      if ($current_node->hasField('field_category')) {
+        // Replace $categoryId with the category ID you want to filter by.
+        $query->condition('field_category', $categoryId);
+      }
+      else {
+        // Field doesn't exist, return an empty array.
+        // return [];
+      }
     }
 
     $nids = $query->execute();
