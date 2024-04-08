@@ -1,0 +1,7 @@
+name: 'Custom User List'
+type: module
+description: 'Provides a block to list users based on selected role.'
+core_version_requirement: ^9 || ^10
+package: Custom Blocks
+dependencies:
+  - drupal:block
