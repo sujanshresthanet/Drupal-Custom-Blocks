@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  *
  * @Block(
  *   id = "custom_latest_nodes_block",
- *   admin_label = @Translation("Latest Nodes"),
+ *   admin_label = @Translation("Custom Blocks"),
  * )
  */
 class LatestNodesBlock extends BlockBase implements ContainerFactoryPluginInterface {
