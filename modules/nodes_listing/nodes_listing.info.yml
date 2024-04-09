@@ -1,0 +1,8 @@
+name: 'Nodes Listing'
+type: module
+description: 'Retrieves the nodes listing blocks.'
+package: 'Custom Blocks'
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:node
+  - custom_blocks

@@ -1,0 +1,4 @@
+# services:
+#   nodes_listing.block:
+#     class: Drupal\nodes_listing\NodesListingService
+#     arguments: ['@entity_type.manager', '@current_route_match']
